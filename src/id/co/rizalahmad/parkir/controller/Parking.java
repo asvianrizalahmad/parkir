@@ -67,14 +67,60 @@ public class Parking
 	
 	public void showRegNoByColor(Car[] cars, String color)
 	{
+		StringBuilder slots = new StringBuilder();
 		
+		for(int i=0; i<cars.length; i++)
+		{
+			if(cars[i] != null)
+			{
+				if(cars[i].getColor().equalsIgnoreCase(color))
+				{
+					slots.append(cars[i].getRegNumber());
+					slots.append(", ");
+				}
+			}
+		}
+		
+		if(slots.length() > 0)
+			System.out.println(slots.substring(0, slots.length()-3));
+		else
+			System.out.println("Not found");
 	}
 	public void showSlotByColor(Car[] cars, String color)
 	{
+		StringBuilder slots = new StringBuilder();
 		
+		for(int i=0; i<cars.length; i++)
+		{
+			if(cars[i] != null)
+			{
+				if(cars[i].getColor().equalsIgnoreCase(color))
+				{
+					slots.append(i+1);
+					slots.append(", ");
+				}
+			}
+		}
+		
+		if(slots.length() > 0)
+			System.out.println(slots.substring(0, slots.length()-3));
+		else
+			System.out.println("Not found");
 	}
 	public void showSlotByRegNo(Car[] cars, String regNo)
 	{
+		for(int i=0; i<cars.length; i++)
+		{
+			if(cars[i] != null)
+			{
+				if(cars[i].getColor().equalsIgnoreCase(regNo))
+				{
+					System.out.println(i+1);
+					break;
+				}
+			}
+		}
 		
+		System.out.println("Not found");
 	}
 }
