@@ -9,7 +9,7 @@ public class Parking
 		if(Utility.isPosInt(number))
 		{
 			if(cars.length > 0)
-				Utility.error("You have initialize the slots for the parking lot");
+				System.out.println("You have initialized the slots for the parking lot");
 			else
 			{
 				cars = new Car[Integer.valueOf(number)];

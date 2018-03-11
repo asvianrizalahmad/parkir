@@ -33,15 +33,4 @@ public class Utility
 	    
 	    return true;
 	}
-	
-	public static void error(String message)
-	{
-		System.out.println("Error: " + message);
-	}
-	
-//	public static void output(String message)
-//	{
-//		System.out.println("Output:");
-//		System.out.println(message);
-//	}
 }
