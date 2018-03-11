@@ -1,11 +1,8 @@
 package id.co.rizalahmad.parkir.view;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import id.co.rizalahmad.parkir.controller.Parking;
-import id.co.rizalahmad.parkir.controller.Utility;
 import id.co.rizalahmad.parkir.model.Car;
 
 public class Main 
@@ -16,8 +13,7 @@ public class Main
 		Scanner scanner;
 		String command;
 		String input[];
-		int num = 0;
-		List<Car> slot = new ArrayList<Car>();
+		Car cars[] = new Car[0];
 		
 		while(true)
 		{
@@ -29,46 +25,25 @@ public class Main
 			if(input.length == 1)
 			{
 				if(input[0].equalsIgnoreCase("status"))
-					parking.status();
+					parking.status(cars);
 			}
 			else if(input.length == 2)
 			{
 				if(input[0].equalsIgnoreCase("create_parking_lot"))
-				{
-					if(Utility.isPosInt(input[1]))
-					{
-						if(num > 0)
-						{
-							System.out.println("Error:");
-							System.out.println("You have initialize the slots for the parking lot");
-						}							
-						else
-						{
-							num = Integer.valueOf(input[1]);
-							System.out.println("Output:");
-							System.out.println("Created a parking lot with " + input[1] + " slots");
-						}
-					}
-					else
-					{
-						System.out.println("Error:");
-						System.out.println("Number of slot must be a positive number");
-					}
-				}
+					parking.initializeSlot(cars, input[1]);
 				else if(input[0].equalsIgnoreCase("leave"))
-				{
-					if(Utility.isPosInt(input[1]) && Integer.valueOf(input[1]) <= num)
-					{
-						
-					}
-				}
+					parking.leave(cars, input[1]);
+				else if(input[0].equalsIgnoreCase("registration_numbers_for_cars_with_colour"))
+					parking.showRegNoByColor(cars, input[1]);
+				else if(input[0].equalsIgnoreCase("slot_numbers_for_cars_with_colour"))
+					parking.showSlotByColor(cars, input[1]);
+				else if(input[0].equalsIgnoreCase("slot_number_for_registration_number"))
+					parking.showSlotByRegNo(cars, input[1]);
 			}
 			else if(input.length == 3)
 			{
 				if(input[0].equalsIgnoreCase("park"))
-				{
-					
-				}
+					parking.park(cars, input[1], input[2]);
 			}
 			
 			scanner.close();

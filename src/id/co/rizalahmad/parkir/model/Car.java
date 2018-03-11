@@ -1,22 +1,25 @@
 package id.co.rizalahmad.parkir.model;
 
-import id.co.rizalahmad.parkir.predefined.Color;
-
 public class Car 
 {
 	private String regNumber;
-	private Color color;
+	private String color;
 	
+	public Car(String regNumber, String color) {
+		super();
+		this.regNumber = regNumber;
+		this.color = color;
+	}
 	public String getRegNumber() {
 		return regNumber;
 	}
 	public void setRegNumber(String regNumber) {
 		this.regNumber = regNumber;
 	}
-	public Color getColor() {
+	public String getColor() {
 		return color;
 	}
-	public void setColor(Color color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 }
